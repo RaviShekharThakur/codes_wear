@@ -2,8 +2,6 @@
 
 import { Inter } from "next/font/google";
 import Head from "next/head";
-import CustomeNavbar from "@/components/CustomeNavbar";
-import CustomFooter from "@/components/CustomFooter";
 import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -14,9 +12,9 @@ export default function Home() {
     <Head>
       <title>CodesWear-wear the code</title>
     </Head>
-    <CustomeNavbar/>
+    
       <div>
-        <Image src="/navbar_logo.jpg" width="500" height="500" alt="" />
+        {/* <Image src="/navbar_logo.jpg" width="500" height="500" alt="" /> */}
         <section className="text-gray-600 body-font">
           <div className="container px-5 py-24 mx-auto">
             <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
@@ -97,7 +95,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-    <CustomFooter/>
     </>
   );
 }
