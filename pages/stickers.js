@@ -5,7 +5,7 @@ import { Card } from 'flowbite-react';
 import Link from 'next/link'
 
 
-const Hoodies = () => {
+const Stickers = () => {
   return (
     <>
       <div className="container flex flex-wrap m-4 mx-auto">
@@ -14,7 +14,7 @@ const Hoodies = () => {
             style={{ maxWidth: '20rem'}}
             className="max-w-sm m-5"
             imgAlt="Tshirt image"
-            imgSrc="https://m.media-amazon.com/images/I/61hkiRgYppL._SY741_.jpg"
+            imgSrc="https://m.media-amazon.com/images/I/51UN6rnQN-L.jpg"
           >
             <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
               Category- Tshirt
@@ -33,7 +33,7 @@ const Hoodies = () => {
             style={{ maxWidth: '20rem'}}
             className="max-w-sm m-5"
             imgAlt="Tshirt image"
-            imgSrc="https://m.media-amazon.com/images/I/61hkiRgYppL._SY741_.jpg"
+            imgSrc="https://m.media-amazon.com/images/I/51UN6rnQN-L.jpg"
           >
             <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
               Category- Tshirt
@@ -52,7 +52,7 @@ const Hoodies = () => {
             style={{ maxWidth: '20rem'}}
             className="max-w-sm m-5"
             imgAlt="Tshirt image"
-            imgSrc="https://m.media-amazon.com/images/I/61hkiRgYppL._SY741_.jpg"
+            imgSrc="https://m.media-amazon.com/images/I/51UN6rnQN-L.jpg"
           >
             <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
               Category- Tshirt
@@ -71,7 +71,7 @@ const Hoodies = () => {
             style={{ maxWidth: '20rem'}}
             className="max-w-sm m-5"
             imgAlt="Tshirt image"
-            imgSrc="https://m.media-amazon.com/images/I/61hkiRgYppL._SY741_.jpg"
+            imgSrc="https://m.media-amazon.com/images/I/51UN6rnQN-L.jpg"
           >
             <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
               Category- Tshirt
@@ -90,7 +90,7 @@ const Hoodies = () => {
             style={{ maxWidth: '20rem'}}
             className="max-w-sm m-5"
             imgAlt="Tshirt image"
-            imgSrc="https://m.media-amazon.com/images/I/61hkiRgYppL._SY741_.jpg"
+            imgSrc="https://m.media-amazon.com/images/I/51UN6rnQN-L.jpg"
           >
             <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
               Category- Tshirt
@@ -109,7 +109,7 @@ const Hoodies = () => {
             style={{ maxWidth: '20rem'}}
             className="max-w-sm m-5"
             imgAlt="Tshirt image"
-            imgSrc="https://m.media-amazon.com/images/I/61hkiRgYppL._SY741_.jpg"
+            imgSrc="https://m.media-amazon.com/images/I/51UN6rnQN-L.jpg"
           >
             <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
               Category- Tshirt
@@ -128,7 +128,7 @@ const Hoodies = () => {
             style={{ maxWidth: '20rem'}}
             className="max-w-sm m-5"
             imgAlt="Tshirt image"
-            imgSrc="https://m.media-amazon.com/images/I/61hkiRgYppL._SY741_.jpg"
+            imgSrc="https://m.media-amazon.com/images/I/51UN6rnQN-L.jpg"
           >
             <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
               Category- Tshirt
@@ -147,7 +147,7 @@ const Hoodies = () => {
             style={{ maxWidth: '20rem'}}
             className="max-w-sm m-5"
             imgAlt="Tshirt image"
-            imgSrc="https://m.media-amazon.com/images/I/61hkiRgYppL._SY741_.jpg"
+            imgSrc="https://m.media-amazon.com/images/I/51UN6rnQN-L.jpg"
           >
             <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
               Category- Tshirt
@@ -166,4 +166,4 @@ const Hoodies = () => {
   )
 }
 
-export default Hoodies
+export default Stickers
