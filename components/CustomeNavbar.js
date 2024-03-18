@@ -12,6 +12,8 @@ import { BiSolidSticker } from "react-icons/bi";
 import { FaBeerMugEmpty } from "react-icons/fa6";
 import { FaRegWindowClose } from "react-icons/fa";
 import { CiCirclePlus, CiSquareMinus } from "react-icons/ci";
+import { MdShoppingCartCheckout } from "react-icons/md";
+import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 
 
 const CustomeNavbar = () => {
@@ -56,7 +58,7 @@ const CustomeNavbar = () => {
           <span onClick={toggleCartSidebar} className='absolute right-3 top-21'><FaRegWindowClose /></span>
           <Sidebar.Items>
             <Sidebar.ItemGroup>
-              <Sidebar.Item href="#" icon={HiChartPie}>
+              <Sidebar.Item href="#" icon={BsCartPlusFill}>
                 Shopping Cart
               </Sidebar.Item>
               <Sidebar.Collapse icon={HiShoppingBag} label="E-commerce">
@@ -67,40 +69,55 @@ const CustomeNavbar = () => {
               </Sidebar.Collapse>
               <Sidebar.Item href="#" icon={HiInbox} className="">
                 <span className="flex items-center">Tshirt
-                <CiCirclePlus className="ml-1" />
-                1
-                <CiSquareMinus className="ml-1" />
+                  <CiCirclePlus className="ml-1" />
+                  1
+                  <CiSquareMinus className="ml-1" />
                 </span>
               </Sidebar.Item>
               <Sidebar.Item href="#" icon={HiInbox} className="">
                 <span className="flex items-center">Tshirt
-                <CiCirclePlus className="ml-1" />
-                1
-                <CiSquareMinus className="ml-1" />
+                  <CiCirclePlus className="ml-1" />
+                  1
+                  <CiSquareMinus className="ml-1" />
                 </span>
               </Sidebar.Item>
               <Sidebar.Item href="#" icon={HiInbox} className="">
                 <span className="flex items-center">Hoodies
-                <CiCirclePlus className="ml-1" />
-                1
-                <CiSquareMinus className="ml-1" />
+                  <CiCirclePlus className="ml-1" />
+                  1
+                  <CiSquareMinus className="ml-1" />
                 </span>
               </Sidebar.Item>
               <Sidebar.Item href="#" icon={HiInbox} className="">
                 <span className="flex items-center">Mugs
-                <CiCirclePlus className="ml-1" />
-                1
-                <CiSquareMinus className="ml-1" />
+                  <CiCirclePlus className="ml-1" />
+                  1
+                  <CiSquareMinus className="ml-1" />
                 </span>
               </Sidebar.Item>
               <Sidebar.Item href="#" icon={HiInbox} className="">
                 <span className="flex items-center">Stickers
-                <CiCirclePlus className="ml-1" />
-                1
-                <CiSquareMinus className="ml-1" />
+                  <CiCirclePlus className="ml-1" />
+                  1
+                  <CiSquareMinus className="ml-1" />
                 </span>
               </Sidebar.Item>
-
+              <div className='flex items-center'>
+                <div className='mr-1'>
+                <Button>
+                  <div className='mr-1'>
+                    <MdShoppingCartCheckout />
+                  </div>
+                  Checkout
+                </Button>
+                </div>
+                <Button>
+                  <div className='mr-1'>
+                    <MdOutlineRemoveShoppingCart />
+                  </div>
+                  Clear
+                </Button>
+              </div>
             </Sidebar.ItemGroup>
           </Sidebar.Items>
         </Sidebar>
