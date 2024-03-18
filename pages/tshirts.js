@@ -1,121 +1,161 @@
+'use client';
+
 import React from 'react'
 import Link from 'next/link'
+import { Card } from 'flowbite-react';
 
 const Tshirts = () => {
   return (
-    <div>
-      <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap -m-4">
-            <Link href="/product/get-the-tshirt">
-              <div className="p-4 w-full">
-                <a className="block relative rounded overflow-hidden">
-                  <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg"/>
-                </a>
-                <div className="mt-4">
-                  <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                  <h2 className="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
-                  <p className="mt-1">₹916.00</p>
-                  <p className="mt-1">Size - S M l XL 2XL</p>
-                </div>
+        <>
+        <div className="container flex flex-wrap m-4 mx-auto">  
+          <Link href="/product/get-the-tshirt">
+            <Card
+              className="max-w-sm"
+              imgAlt="Tshirt image"
+              imgSrc="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg"
+            >
+              <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
+                Category- Tshirt
+              </h5>
+              <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                Wear The Code
+              </h5>
+              <div className="flex items-center justify-between">
+                <span className="text-l font-bold text-gray-900 dark:text-white">Size - S M L XL 2XL</span>
+                <span className="text-xl font-bold text-gray-900 dark:text-white">₹921.15</span>
               </div>
-            </Link>
-            <Link href="/product/get-the-tshirt">
-              <div className="p-4 w-full">
-                <a className="block relative rounded overflow-hidden">
-                  <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg  "/>
-                </a>
-                <div className="mt-4">
-                  <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                  <h2 className="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
-                  <p className="mt-1">₹921.15</p>
-                  <p className="mt-1">Size - S M l XL 2XL</p>
-                </div>
-              </div>
-            </Link>
-            <Link href="/product/get-the-tshirt">
-              <div className="p-4 w-full">
-                <a className="block relative rounded overflow-hidden">
-                  <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg  "/>
-                </a>
-                <div className="mt-4">
-                  <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                  <h2 className="text-gray-900 title-font text-lg font-medium">Neptune</h2>
-                  <p className="mt-1">₹912.00</p>
-                  <p className="mt-1">Size - S M l XL 2XL</p>
-                </div>
-              </div>
-            </Link>
-            <Link href="/product/get-the-tshirt">
-              <div className="p-4 w-full">
-                <a className="block relative rounded overflow-hidden">
-                  <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg  "/>
-                </a>
-                <div className="mt-4">
-                  <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                  <h2 className="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
-                  <p className="mt-1">₹918.40</p>
-                  <p className="mt-1">Size - S M l XL 2XL</p>
-                </div>
-              </div>
-            </Link>
-            <Link href="/product/get-the-tshirt">
-              <div className="p-4 w-full">
-                <a className="block relative rounded overflow-hidden">
-                  <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg  "/>
-                </a>
-                <div className="mt-4">
-                  <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                  <h2 className="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
-                  <p className="mt-1">₹916.00</p>
-                  <p className="mt-1">Size - S M l XL 2XL</p>
-                </div>
-              </div>
-            </Link>
-            <Link href="/product/get-the-tshirt">
-              <div className="p-4 w-full">
-                <a className="block relative rounded overflow-hidden">
-                  <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg  "/>
-                </a>
-                <div className="mt-4">
-                  <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                  <h2 className="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
-                  <p className="mt-1">₹921.15</p>
-                  <p className="mt-1">Size - S M l XL 2XL</p>
-                </div>
-              </div>
-            </Link>
-            <Link href="/product/get-the-tshirt">
-              <div className="p-4 w-full">
-                <a className="block relative rounded overflow-hidden">
-                  <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg  "/>
-                </a>
-                <div className="mt-4">
-                  <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                  <h2 className="text-gray-900 title-font text-lg font-medium">Neptune</h2>
-                  <p className="mt-1">₹912.00</p>
-                  <p className="mt-1">Size - S M l XL 2XL</p>
-                </div>
-              </div>
-            </Link>
-            <Link href="/product/get-the-tshirt">
-              <div className="p-4 w-full">
-                <a className="block relative rounded overflow-hidden">
-                  <img alt="ecommerce" className="h-[36vh] block" src="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg  "/>
-                </a>
-                <div className="mt-4">
-                  <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-                  <h2 className="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
-                  <p className="mt-1">₹918.40</p>
-                  <p className="mt-1">Size - S M l XL 2XL</p>
-                </div>
-              </div>
-            </Link>
-          </div>
+            </Card>
+          </Link>
+          <Link href="/product/get-the-tshirt">
+          <Card
+            className="max-w-sm"
+            imgAlt="Tshirt image"
+            imgSrc="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg"
+          >
+            <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
+              Category- Tshirt
+            </h5>
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              Wear The Code
+            </h5>
+            <div className="flex items-center justify-between">
+              <span className="text-l font-bold text-gray-900 dark:text-white">Size - S M L XL 2XL</span>
+              <span className="text-xl font-bold text-gray-900 dark:text-white">₹921.15</span>
+            </div>
+          </Card>
+        </Link>
+          <Link href="/product/get-the-tshirt">
+          <Card
+            className="max-w-sm"
+            imgAlt="Tshirt image"
+            imgSrc="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg"
+          >
+            <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
+              Category- Tshirt
+            </h5>
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              Wear The Code
+            </h5>
+            <div className="flex items-center justify-between">
+              <span className="text-l font-bold text-gray-900 dark:text-white">Size - S M L XL 2XL</span>
+              <span className="text-xl font-bold text-gray-900 dark:text-white">₹921.15</span>
+            </div>
+          </Card>
+        </Link>
+          <Link href="/product/get-the-tshirt">
+          <Card
+            className="max-w-sm"
+            imgAlt="Tshirt image"
+            imgSrc="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg"
+          >
+            <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
+              Category- Tshirt
+            </h5>
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              Wear The Code
+            </h5>
+            <div className="flex items-center justify-between">
+              <span className="text-l font-bold text-gray-900 dark:text-white">Size - S M L XL 2XL</span>
+              <span className="text-xl font-bold text-gray-900 dark:text-white">₹921.15</span>
+            </div>
+          </Card>
+        </Link>
+          <Link href="/product/get-the-tshirt">
+          <Card
+            className="max-w-sm"
+            imgAlt="Tshirt image"
+            imgSrc="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg"
+          >
+            <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
+              Category- Tshirt
+            </h5>
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              Wear The Code
+            </h5>
+            <div className="flex items-center justify-between">
+              <span className="text-l font-bold text-gray-900 dark:text-white">Size - S M L XL 2XL</span>
+              <span className="text-xl font-bold text-gray-900 dark:text-white">₹921.15</span>
+            </div>
+          </Card>
+        </Link>
+          <Link href="/product/get-the-tshirt">
+          <Card
+            className="max-w-sm"
+            imgAlt="Tshirt image"
+            imgSrc="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg"
+          >
+            <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
+              Category- Tshirt
+            </h5>
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              Wear The Code
+            </h5>
+            <div className="flex items-center justify-between">
+              <span className="text-l font-bold text-gray-900 dark:text-white">Size - S M L XL 2XL</span>
+              <span className="text-xl font-bold text-gray-900 dark:text-white">₹921.15</span>
+            </div>
+          </Card>
+        </Link>
+          <Link href="/product/get-the-tshirt">
+          <Card
+            className="max-w-sm"
+            imgAlt="Tshirt image"
+            imgSrc="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg"
+          >
+            <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
+              Category- Tshirt
+            </h5>
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              Wear The Code
+            </h5>
+            <div className="flex items-center justify-between">
+              <span className="text-l font-bold text-gray-900 dark:text-white">Size - S M L XL 2XL</span>
+              <span className="text-xl font-bold text-gray-900 dark:text-white">₹921.15</span>
+            </div>
+          </Card>
+        </Link>
+          <Link href="/product/get-the-tshirt">
+          <Card
+            className="max-w-sm"
+            imgAlt="Tshirt image"
+            imgSrc="https://m.media-amazon.com/images/I/71r3W2+d-vL._SY741_.jpg"
+          >
+            <h5 className="text-xl font-semibold tracking-tight text-gray-500 dark:text-white">
+              Category- Tshirt
+            </h5>
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              Wear The Code
+            </h5>
+            <div className="flex items-center justify-between">
+              <span className="text-l font-bold text-gray-900 dark:text-white">Size - S M L XL 2XL</span>
+              <span className="text-xl font-bold text-gray-900 dark:text-white">₹921.15</span>
+            </div>
+          </Card>
+        </Link>
         </div>
-      </section>
-    </div>
-  )
+      </>
+      
+    );    
 }
 
 export default Tshirts
