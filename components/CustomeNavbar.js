@@ -16,7 +16,8 @@ import { MdShoppingCartCheckout } from "react-icons/md";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 
 
-const CustomeNavbar = () => {
+const CustomeNavbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
+  console.log(cart, addToCart, removeFromCart, clearCart, subTotal)
   const toggleCartSidebar = () => {
     if (ref.current.classList.contains('translate-x-full')) {
       ref.current.classList.remove("translate-x-full")
@@ -61,57 +62,30 @@ const CustomeNavbar = () => {
               <Sidebar.Item href="#" icon={BsCartPlusFill}>
                 Shopping Cart
               </Sidebar.Item>
-              <Sidebar.Collapse icon={HiShoppingBag} label="E-commerce">
-                <Sidebar.Item href="#">Products</Sidebar.Item>
-                <Sidebar.Item href="#">Sales</Sidebar.Item>
-                <Sidebar.Item href="#">Refunds</Sidebar.Item>
-                <Sidebar.Item href="#">Shipping</Sidebar.Item>
-              </Sidebar.Collapse>
-              <Sidebar.Item href="#" icon={HiInbox} className="">
-                <span className="flex items-center">Tshirt
-                  <CiCirclePlus className="ml-1" />
-                  1
-                  <CiSquareMinus className="ml-1" />
-                </span>
-              </Sidebar.Item>
-              <Sidebar.Item href="#" icon={HiInbox} className="">
-                <span className="flex items-center">Tshirt
-                  <CiCirclePlus className="ml-1" />
-                  1
-                  <CiSquareMinus className="ml-1" />
-                </span>
-              </Sidebar.Item>
-              <Sidebar.Item href="#" icon={HiInbox} className="">
-                <span className="flex items-center">Hoodies
-                  <CiCirclePlus className="ml-1" />
-                  1
-                  <CiSquareMinus className="ml-1" />
-                </span>
-              </Sidebar.Item>
-              <Sidebar.Item href="#" icon={HiInbox} className="">
-                <span className="flex items-center">Mugs
-                  <CiCirclePlus className="ml-1" />
-                  1
-                  <CiSquareMinus className="ml-1" />
-                </span>
-              </Sidebar.Item>
-              <Sidebar.Item href="#" icon={HiInbox} className="">
-                <span className="flex items-center">Stickers
-                  <CiCirclePlus className="ml-1" />
-                  1
-                  <CiSquareMinus className="ml-1" />
-                </span>
-              </Sidebar.Item>
+              {Object.keys(cart).length ==0 && <div className='my-4 text-base'>Your cart is empty</div>}
+              {Object.keys(cart).map((k) => {
+                return <Sidebar.Item href="#" key={k} icon={HiInbox} className="">
+                  <span className="flex items-center">{cart[k].name}
+                    <CiSquareMinus className="ml-1" onClick={()=>{
+                      removeFromCart(k, 1,cart[k].price, cart[k].name,cart[k].size, cart[k].variant )
+                    }}/>
+                    {cart[k].qty}
+                    <CiCirclePlus className="ml-1" onClick={()=>{
+                      addToCart(k, 1,cart[k].price, cart[k].name,cart[k].size, cart[k].variant )
+                    }}/>
+                  </span>
+                </Sidebar.Item>
+              })}
               <div className='flex items-center'>
                 <div className='mr-1'>
-                <Button>
-                  <div className='mr-1'>
-                    <MdShoppingCartCheckout />
-                  </div>
-                  Checkout
-                </Button>
+                  <Button>
+                    <div className='mr-1'>
+                      <MdShoppingCartCheckout />
+                    </div>
+                    Checkout
+                  </Button>
                 </div>
-                <Button>
+                <Button onClick={clearCart}>
                   <div className='mr-1'>
                     <MdOutlineRemoveShoppingCart />
                   </div>
