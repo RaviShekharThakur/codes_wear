@@ -14,10 +14,11 @@ import { FaRegWindowClose } from "react-icons/fa";
 import { CiCirclePlus, CiSquareMinus } from "react-icons/ci";
 import { MdShoppingCartCheckout } from "react-icons/md";
 import { MdOutlineRemoveShoppingCart } from "react-icons/md";
+import { RiAccountBoxLine } from "react-icons/ri";
 
 
 const CustomeNavbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
-  console.log(cart, addToCart, removeFromCart, clearCart, subTotal)
+  // console.log(cart, addToCart, removeFromCart, clearCart, subTotal)
   const toggleCartSidebar = () => {
     if (ref.current.classList.contains('translate-x-full')) {
       ref.current.classList.remove("translate-x-full")
@@ -37,8 +38,9 @@ const CustomeNavbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal })
           <Image src="/wear_coder_logo.png" width="60" height="500" alt="" className='rounded-xl' />
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Codes Wear</span>
         </Link>
-        <div onClick={toggleCartSidebar} className="flex md:order-2">
-          <Button>
+        <div  className="flex md:order-2 ">
+        <Link href={"/login"}><RiAccountBoxLine className='text-3xl mt-2 mr-3 cursor-pointer'/></Link>
+          <Button onClick={toggleCartSidebar}>
             <BsCartPlusFill />
             Cart
           </Button>
