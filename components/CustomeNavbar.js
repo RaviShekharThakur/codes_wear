@@ -31,8 +31,8 @@ const CustomeNavbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal })
   const ref = useRef()
 
   return (
-    <div style={{ position: 'relative' }}>
-      <Navbar fluid rounded className='shadow-md'>
+    <div className='sticky top-0 bg-white'>
+      <Navbar fluid rounded className='shadow-md '>
         <Link href="/" className="flex items-center">
           <Image src="/wear_coder_logo.png" width="60" height="500" alt="" className='rounded-xl' />
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Codes Wear</span>
@@ -54,7 +54,7 @@ const CustomeNavbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal })
           <Link href="/mugs" className="flex items-center"><FaBeerMugEmpty />Mugs</Link>
         </Navbar.Collapse>
       </Navbar>
-      <div ref={ref} style={{ position: 'absolute', top: 80, right: 0 }} className='sideCart transform transition-transform translate-x-full'>
+      <div ref={ref} style={{ position: 'absolute', top: 80, right: 0, zIndex: 9  }} className={`sideCart transform transition-transform ${Object.keys(cart).length != 0 ? 'translate-x-0' : 'translate-x-full'} `}>
         <Sidebar aria-label="Sidebar with multi-level dropdown example " >
           <span onClick={toggleCartSidebar} className='absolute right-3 top-21'><FaRegWindowClose /></span>
           <Sidebar.Items>
@@ -62,28 +62,31 @@ const CustomeNavbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal })
               <Sidebar.Item href="#" icon={BsCartPlusFill}>
                 Shopping Cart
               </Sidebar.Item>
-              {Object.keys(cart).length ==0 && <div className='my-4 text-base'>Your cart is empty</div>}
+              {Object.keys(cart).length == 0 && <div className='my-4 text-base'>Your cart is empty</div>}
               {Object.keys(cart).map((k) => {
                 return <Sidebar.Item href="#" key={k} icon={HiInbox} className="">
                   <span className="flex items-center">{cart[k].name}
-                    <CiSquareMinus className="ml-1" onClick={()=>{
-                      removeFromCart(k, 1,cart[k].price, cart[k].name,cart[k].size, cart[k].variant )
-                    }}/>
+                    <CiSquareMinus className="ml-1" onClick={() => {
+                      removeFromCart(k, 1, cart[k].price, cart[k].name, cart[k].size, cart[k].variant)
+                    }} />
                     {cart[k].qty}
-                    <CiCirclePlus className="ml-1" onClick={()=>{
-                      addToCart(k, 1,cart[k].price, cart[k].name,cart[k].size, cart[k].variant )
-                    }}/>
+                    <CiCirclePlus className="ml-1" onClick={() => {
+                      addToCart(k, 1, cart[k].price, cart[k].name, cart[k].size, cart[k].variant)
+                    }} />
                   </span>
                 </Sidebar.Item>
               })}
+              <div className="subtotal font-bold mt-12">Subtotal: {subTotal}</div>
               <div className='flex items-center'>
                 <div className='mr-1'>
-                  <Button>
-                    <div className='mr-1'>
-                      <MdShoppingCartCheckout />
-                    </div>
-                    Checkout
-                  </Button>
+                  <Link href={"/checkout"}>
+                    <Button>
+                      <div className='mr-1'>
+                        <MdShoppingCartCheckout />
+                      </div>
+                      Checkout
+                    </Button>
+                  </Link>
                 </div>
                 <Button onClick={clearCart}>
                   <div className='mr-1'>
