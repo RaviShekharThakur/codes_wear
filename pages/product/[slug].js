@@ -1,7 +1,10 @@
+import Product from '@/models/Product'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import mongoose from "mongoose"
 
-export default function Post({ addToCart }) {
+export default function Post({ addToCart, product, variants }) {
+  console.log(product, variants)
   const router = useRouter()
   const { slug } = router.query
   const [pin, setPin] = useState()
@@ -116,4 +119,26 @@ export default function Post({ addToCart }) {
       </div>
     </section>
   </>
+}
+
+export async function getServerSideProps(context) {
+  if (!mongoose.connections[0].readyState) {
+    await mongoose.connect(process.env.MONGO_URI)
+  }
+  let product = await Product.findOne({ slug: context.query.slug })
+  let variants = await Product.find({title: product.title})
+  let colorSizeSlug = {}
+  for (let item of variants){
+    if (Object.keys(colorSizeSlug).includes(item.color)){
+      colorSizeSlug[item.color][item.size] = {slug: item.slug}
+    }
+    else{
+      colorSizeSlug[item.color] = {}
+      colorSizeSlug[item.color][item.size] = {slug: item.slug}
+    }
+  }
+
+  return {
+    props: { product: JSON.parse(JSON.stringify(product)), variants: JSON.parse(JSON.stringify(colorSizeSlug)) },
+  }
 }
