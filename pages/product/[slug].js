@@ -1,23 +1,23 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
-export default function Post({addToCart}) {
+export default function Post({ addToCart }) {
   const router = useRouter()
-  const {slug} = router.query
-  const[pin, setPin] = useState()
-  const[service, setService] = useState()
-  const checkServiceAvailability = async() => {
+  const { slug } = router.query
+  const [pin, setPin] = useState()
+  const [service, setService] = useState()
+  const checkServiceAvailability = async () => {
     let pins = await fetch('http://localhost:3000/api/pincode')
     let pinJson = await pins.json()
-    if(pinJson.includes(parseInt(pin))){
+    if (pinJson.includes(parseInt(pin))) {
       setService(true)
     }
-    else{
+    else {
       setService(false)
     }
   }
 
-  const onChangePin = (e)=>{
+  const onChangePin = (e) => {
     setPin(e.target.value)
   }
 
@@ -94,7 +94,7 @@ export default function Post({addToCart}) {
             <div className="flex">
               <span className="title-font font-medium text-2xl text-gray-900">$58.00</span>
               <button className="flex ml-4 text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Buy Now</button>
-              <button className="flex ml-4 text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded" onClick={()=>{addToCart(slug, 1, 499, 'wear the code(XL, red)', 'XL', 'RED')}}>Add To Cart</button> 
+              <button className="flex ml-4 text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded" onClick={() => { addToCart(slug, 1, 499, 'wear the code(XL, red)', 'XL', 'RED') }}>Add To Cart</button>
               <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                 <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
                   <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
@@ -102,7 +102,7 @@ export default function Post({addToCart}) {
               </button>
             </div>
             <div className="pin mt-6 flex space-x-2 text-sm">
-              <input onChange={onChangePin} type="text" className='px-2 border-2 rounded-md' placeholder='Enter your Pincode'/>
+              <input onChange={onChangePin} type="text" className='px-2 border-2 rounded-md' placeholder='Enter your Pincode' />
               <button onClick={checkServiceAvailability} className='flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded'>check</button>
             </div>
             {!service && service != null && <div className="text-red-700 text-sm mt-3">

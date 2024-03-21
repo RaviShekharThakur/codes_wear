@@ -6,11 +6,12 @@ const ProductSchema = new Schema({
   slug: {type: String, required: true, unique: true},
   desc: {type: String, required: true},
   img: {type: String, required: true},
-  category: {type: String, required: true},
-  category: {Size: String},
+  size: {type: String, required: true},
   color: {type: String},
   price: {type: Number, required: true},
   availableQty: {type: Number, required: true}
 }, {timestamps: true});
+
+mongoose.models= {}
 
 export default mongoose.model("Product", ProductSchema);
