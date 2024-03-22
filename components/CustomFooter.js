@@ -26,48 +26,47 @@ const CustomFooter = () => {
               <div>
                 <Footer.Title title="Company" />
                 <Footer.LinkGroup col>
-                  <Link href="/">About</Link>
-                  <Link href="/">About</Link>
-                  <Link href="/">Careers</Link>
-                  <Link href="/">Brand Center</Link>
-                  <Link href="/">Blog</Link>
+                  <Link className='hover:text-white'  href="/">About</Link>
+                  <Link className='hover:text-white'  href="/">Careers</Link>
+                  <Link className='hover:text-white'  href="/">Brand Center</Link>
+                  <Link className='hover:text-white'  href="/">Blog</Link>
                 </Footer.LinkGroup>
               </div>
               <div>
                 <Footer.Title title="help center" />
                 <Footer.LinkGroup col>
-                  <Link href="/contact">Discord Server</Link>
-                  <Link href="/">Twitter</Link>
-                  <Link href="/">Facebook</Link>
-                  <Link href="/">Contact Us</Link>
+                  <Link className='hover:text-white'  href="/contact">Discord Server</Link>
+                  <Link className='hover:text-white'  href="/">Twitter</Link>
+                  <Link className='hover:text-white'  href="/">Facebook</Link>
+                  <Link className='hover:text-white'  href="/">Contact Us</Link>
                 </Footer.LinkGroup>
               </div>
               <div>
                 <Footer.Title title="legal" />
                 <Footer.LinkGroup col>
-                  <Link href="/">Privacy Policy</Link>
-                  <Link href="/">Licensing</Link>
-                  <Link href="/">Terms &amp; Conditions</Link>
+                  <Link className='hover:text-white'  href="/">Privacy Policy</Link>
+                  <Link className='hover:text-white'  href="/">Licensing</Link>
+                  <Link className='hover:text-white'  href="/">Terms &amp; Conditions</Link>
                 </Footer.LinkGroup>
               </div>
               <div>
-                <Footer.Title title="download" />
+                <Footer.Title title="Shop" />
                 <Footer.LinkGroup col>
-                  <Link href="/">iOS</Link>
-                  <Link href="/">Android</Link>
-                  <Link href="/">Windows</Link>
-                  <Link href="/">MacOS</Link>
+                  <Link className='hover:text-white' href="/tshirts">Tshirts</Link>
+                  <Link className='hover:text-white' href="/hoodies">Hoodies</Link>
+                  <Link className='hover:text-white' href="/stickers">Stickers</Link>
+                  <Link className='hover:text-white' href="/mugs">Mugs</Link>
                 </Footer.LinkGroup>
               </div>
             </div>
             <div className="w-full bg-gray-700 px-4 py-6 sm:flex sm:items-center sm:justify-between">
-              <Footer.Copyright href="/" by="Flowbite™" year={2022} />
+              <Footer.Copyright href="/" by="CodesWear.com - All Rights Reserved" year={2024} />
               <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-                <Footer.Icon href="/" icon={BsFacebook} />
-                <Footer.Icon href="/" icon={BsInstagram} />
-                <Footer.Icon href="/" icon={BsTwitter} />
-                <Footer.Icon href="/" icon={BsGithub} />
-                <Footer.Icon href="/" icon={BsDribbble} />
+                <Footer.Icon className='hover:text-white'  href="/" icon={BsFacebook} />
+                <Footer.Icon className='hover:text-white'  href="/" icon={BsInstagram} />
+                <Footer.Icon className='hover:text-white'  href="/" icon={BsTwitter} />
+                <Footer.Icon className='hover:text-white'  href="/" icon={BsGithub} />
+                <Footer.Icon className='hover:text-white'  href="/" icon={BsDribbble} />
               </div>
             </div>
           </div>

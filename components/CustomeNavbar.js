@@ -67,7 +67,7 @@ const CustomeNavbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal })
               {Object.keys(cart).length == 0 && <div className='my-4 text-base'>Your cart is empty</div>}
               {Object.keys(cart).map((k) => {
                 return <Sidebar.Item href="#" key={k} icon={HiInbox} className="">
-                  <span className="flex items-center">{cart[k].name}
+                  <span className="flex items-center text-wrap">{cart[k].name}({cart[k].size}/ {cart[k].variant})
                     <CiSquareMinus className="ml-1" onClick={() => {
                       removeFromCart(k, 1, cart[k].price, cart[k].name, cart[k].size, cart[k].variant)
                     }} />
