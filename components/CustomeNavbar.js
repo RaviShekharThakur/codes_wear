@@ -56,8 +56,8 @@ const CustomeNavbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal })
           <Link href="/mugs" className="flex items-center"><FaBeerMugEmpty />Mugs</Link>
         </Navbar.Collapse>
       </Navbar>
-      <div ref={ref} style={{ position: 'absolute', top: 80, right: 0, zIndex: 9  }} className={`sideCart transform transition-transform ${Object.keys(cart).length != 0 ? 'translate-x-0' : 'translate-x-full'} `}>
-        <Sidebar aria-label="Sidebar with multi-level dropdown example " >
+      <div ref={ref} style={{ position: 'absolute', top: 80, right: 0 }} className={`z-0 w-100 h-[90vh] sideCart transform transition-transform ${Object.keys(cart).length != 0 ? 'translate-x-0' : 'translate-x-full'} `}>
+        <Sidebar aria-label="Sidebar with multi-level dropdown example" >
           <span onClick={toggleCartSidebar} className='absolute right-3 top-21'><FaRegWindowClose /></span>
           <Sidebar.Items>
             <Sidebar.ItemGroup>

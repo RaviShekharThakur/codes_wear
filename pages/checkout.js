@@ -11,7 +11,7 @@ import { CiCirclePlus, CiSquareMinus } from "react-icons/ci";
 
 const Checkout = ({ cart, subTotal, removeFromCart, addToCart }) => {
   return (
-    <div className='container m-auto justify-center z-10'>
+    <div className='container m-auto justify-center relative z-10'>
       <h1 className='font-bold text-center text-3xl my-8'>Checkout page</h1>
       <h2 className='font-bold text-xl my-4'>Delivery Details</h2>
       <div className="mx-auto flex">
@@ -68,7 +68,7 @@ const Checkout = ({ cart, subTotal, removeFromCart, addToCart }) => {
         <div className='my-4 text-base'>Your cart is empty</div>) :
         (Object.keys(cart).map((k) => (
           <div key={k} className="flex items-center">
-            <span>{cart[k].name}</span>
+            <span>{cart[k].name} {cart[k].size} /{cart[k].variant}</span>
             <div className="flex items-center mx-20">
               <CiSquareMinus className="ml-5" onClick={() => removeFromCart(k, 1, cart[k].price, cart[k].name, cart[k].size, cart[k].variant)} />
               <div className='ml-2 mr-2'>
