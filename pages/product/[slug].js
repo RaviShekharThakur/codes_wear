@@ -2,6 +2,8 @@ import Product from '@/models/Product'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import mongoose from "mongoose"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Post({ addToCart, product, variants, buyNow }) {
   console.log(product, variants)
@@ -9,14 +11,36 @@ export default function Post({ addToCart, product, variants, buyNow }) {
   const { slug } = router.query
   const [pin, setPin] = useState()
   const [service, setService] = useState()
+
   const checkServiceAvailability = async () => {
+    
     let pins = await fetch('http://localhost:3000/api/pincode')
     let pinJson = await pins.json()
     if (pinJson.includes(parseInt(pin))) {
       setService(true)
+      toast.success('🦄 Yay, Your Pincode is serviceable!', {
+        position: "bottom-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
     }
     else {
       setService(false)
+      toast.error('🦄 Sorry, Your Pincode is not serviceable!', {
+        position: "bottom-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
     }
   }
 
@@ -24,10 +48,10 @@ export default function Post({ addToCart, product, variants, buyNow }) {
     setPin(e.target.value)
   }
 
-  const[color, setColor] = useState(product.color)
-  const[size, setSize] = useState(product.size)
+  const [color, setColor] = useState(product.color)
+  const [size, setSize] = useState(product.size)
 
-  const refreshVariants = (newsize, newcolor) =>{
+  const refreshVariants = (newsize, newcolor) => {
     let url = ` http://localhost:3000/product/${variants[newcolor][newsize]['slug']}`
     window.location = url;
   }
@@ -35,6 +59,18 @@ export default function Post({ addToCart, product, variants, buyNow }) {
 
   return <>
     <section className="text-gray-600 body-font overflow-hidden">
+      <ToastContainer
+        position="bottom-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <div className="container px-5 py-24 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           <img alt="ecommerce" style={{ maxHeight: '40rem' }} className="lg:w-1/2 w-full lg:h-auto h-20 object-cover object-top rounded" src={product.img} />
@@ -82,16 +118,16 @@ export default function Post({ addToCart, product, variants, buyNow }) {
             <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
               <div className="flex">
                 <span className="mr-3">Color</span>
-                {Object.keys(variants).includes('red') && Object.keys(variants['red']).includes(size) && <button onClick={()=>{refreshVariants(size,"red")}} className={`border-2 ml-1 bg-red-700 rounded-full w-6 h-6 focus:outline-none ${color === 'red' ? "border-black" : "border-gray-300"}`}></button>}
-                {Object.keys(variants).includes('green') && Object.keys(variants['green']).includes(size) && <button onClick={()=>{refreshVariants(size,"green")}} className={`border-2 ml-1 bg-green-700 rounded-full w-6 h-6 focus:outline-none ${color === 'green' ? "border-black" : "border-gray-300"}`}></button>}
-                {Object.keys(variants).includes('blue') && Object.keys(variants['blue']).includes(size) && <button onClick={()=>{refreshVariants(size,"blue")}} className={`border-2 ml-1 bg-blue-500 rounded-full w-6 h-6 focus:outline-none ${color === 'blue' ? "border-black" : "border-gray-300"}`}></button>}
-                {Object.keys(variants).includes('bronze') && Object.keys(variants['bronze']).includes(size) && <button onClick={()=>{refreshVariants(size,"bronze")}} className={`border-2 ml-1 bg-red-900 rounded-full w-6 h-6 focus:outline-none ${color === 'bronze' ? "border-black" : "border-gray-300"}`}></button>}
-                {Object.keys(variants).includes('black') && Object.keys(variants['black']).includes(size) && <button onClick={()=>{refreshVariants(size,"black")}} className={`border-2 ml-1 bg-gray-900 rounded-full w-6 h-6 focus:outline-none ${color === 'black' ? "border-black" : "border-gray-300"}`}></button>}
+                {Object.keys(variants).includes('red') && Object.keys(variants['red']).includes(size) && <button onClick={() => { refreshVariants(size, "red") }} className={`border-2 ml-1 bg-red-700 rounded-full w-6 h-6 focus:outline-none ${color === 'red' ? "border-black" : "border-gray-300"}`}></button>}
+                {Object.keys(variants).includes('green') && Object.keys(variants['green']).includes(size) && <button onClick={() => { refreshVariants(size, "green") }} className={`border-2 ml-1 bg-green-700 rounded-full w-6 h-6 focus:outline-none ${color === 'green' ? "border-black" : "border-gray-300"}`}></button>}
+                {Object.keys(variants).includes('blue') && Object.keys(variants['blue']).includes(size) && <button onClick={() => { refreshVariants(size, "blue") }} className={`border-2 ml-1 bg-blue-500 rounded-full w-6 h-6 focus:outline-none ${color === 'blue' ? "border-black" : "border-gray-300"}`}></button>}
+                {Object.keys(variants).includes('bronze') && Object.keys(variants['bronze']).includes(size) && <button onClick={() => { refreshVariants(size, "bronze") }} className={`border-2 ml-1 bg-red-900 rounded-full w-6 h-6 focus:outline-none ${color === 'bronze' ? "border-black" : "border-gray-300"}`}></button>}
+                {Object.keys(variants).includes('black') && Object.keys(variants['black']).includes(size) && <button onClick={() => { refreshVariants(size, "black") }} className={`border-2 ml-1 bg-gray-900 rounded-full w-6 h-6 focus:outline-none ${color === 'black' ? "border-black" : "border-gray-300"}`}></button>}
               </div>
               <div className="flex ml-6 items-center">
                 <span className="mr-3">Size</span>
                 <div className="relative">
-                  <select value={size} onChange={(e)=>{refreshVariants(e.target.value, color)}} className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
+                  <select value={size} onChange={(e) => { refreshVariants(e.target.value, color) }} className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
                     {Object.keys(variants[color]).includes('s') && <option value={'s'}>S</option>}
                     {Object.keys(variants[color]).includes('m') && <option value={'m'}>M</option>}
                     {Object.keys(variants[color]).includes('l') && <option value={'l'}>L</option>}
@@ -110,7 +146,7 @@ export default function Post({ addToCart, product, variants, buyNow }) {
             </div>
             <div className="flex">
               <span className="title-font font-medium text-2xl text-gray-900">$58.00</span>
-              <button onClick={()=>{buyNow(slug, 1, 499, product.title, product.size, product.color)}} className="flex ml-4 text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Buy Now</button>
+              <button onClick={() => { buyNow(slug, 1, 499, product.title, product.size, product.color) }} className="flex ml-4 text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">Buy Now</button>
               <button className="flex ml-4 text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded" onClick={() => { addToCart(slug, 1, 499, product.title, product.size, product.color) }}>Add To Cart</button>
               <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                 <svg fill="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
@@ -140,15 +176,15 @@ export async function getServerSideProps(context) {
     await mongoose.connect(process.env.MONGO_URI)
   }
   let product = await Product.findOne({ slug: context.query.slug })
-  let variants = await Product.find({title: product.title})
+  let variants = await Product.find({ title: product.title })
   let colorSizeSlug = {}
-  for (let item of variants){
-    if (Object.keys(colorSizeSlug).includes(item.color)){
-      colorSizeSlug[item.color][item.size] = {slug: item.slug}
+  for (let item of variants) {
+    if (Object.keys(colorSizeSlug).includes(item.color)) {
+      colorSizeSlug[item.color][item.size] = { slug: item.slug }
     }
-    else{
+    else {
       colorSizeSlug[item.color] = {}
-      colorSizeSlug[item.color][item.size] = {slug: item.slug}
+      colorSizeSlug[item.color][item.size] = { slug: item.slug }
     }
   }
 
