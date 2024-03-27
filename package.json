@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "crypto-js": "^4.2.0",
     "flowbite": "^2.3.0",
     "flowbite-react": "^0.7.3",
     "mongoose": "^8.2.2",
