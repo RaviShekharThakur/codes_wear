@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Link from 'next/link';
-import { Button, Navbar, Sidebar } from 'flowbite-react';
+import { Button, Navbar, Sidebar, Dropdown } from 'flowbite-react';
 import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser } from 'react-icons/hi';
 import Image from "next/image";
 import { BsCartPlusFill } from "react-icons/bs";
@@ -17,8 +17,12 @@ import { MdOutlineRemoveShoppingCart } from "react-icons/md";
 import { RiAccountBoxLine } from "react-icons/ri";
 
 
-const CustomeNavbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
-  // console.log(cart, addToCart, removeFromCart, clearCart, subTotal)
+const CustomeNavbar = ({ logout, user, cart, addToCart, removeFromCart, clearCart, subTotal }) => {
+  const [dropdown, setDropdown] = useState(false)
+  const toggleDropDown = () => {
+    setDropdown(!dropdown)
+  }
+
   const toggleCartSidebar = () => {
     if (ref.current.classList.contains('translate-x-full')) {
       ref.current.classList.remove("translate-x-full")
@@ -38,9 +42,30 @@ const CustomeNavbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal })
           <Image src="/wear_coder_logo.png" width="60" height="500" alt="" className='rounded-xl' />
           <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Codes Wear</span>
         </Link>
-        <div  className="flex md:order-2 ">
-        <Link href={"/login"}><RiAccountBoxLine className='text-3xl mt-2 mr-3 cursor-pointer'/></Link>
-          <Button onClick={toggleCartSidebar}>
+        <div className="flex md:order-2 ">
+          {user.value &&
+            // <RiAccountBoxLine onMouseOver={toggleDropDown} onMouseLeave={toggleDropDown} className='text-3xl mt-2 mr-3 cursor-pointer' />}
+            <Dropdown label=<RiAccountBoxLine className='text-3xl ' /> className='text-3xl mt-2 mx-5 cursor-pointer' onMouseOver={toggleDropDown} onMouseLeave={toggleDropDown} dismissOnClick={false}>
+              <Dropdown.Item>
+                <Link href="/myaccount">
+                  My Account
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link href="/orders">
+                  Order
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item onClick={logout}>
+                Logout
+              </Dropdown.Item>
+            </Dropdown>}
+          {
+            !user.value && <Link href={"/login"}>
+              <Button className='mr-2' color="info">Login</Button>
+            </Link>
+          }
+          <Button onClick={toggleCartSidebar} className='ml-5'>
             <BsCartPlusFill />
             Cart
           </Button>
